@@ -4,57 +4,36 @@ import './components.css';
 
 
 
-class NodeGrid extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            width: 40,
-            height: 40,
-            nodes: [],
-            buffer: []
-        }
-    }
-    
-    render_node_row = (props) => {
-        let row = []
-        let count = 0
-        for(let i = 0; i < (this.state.width * this.state.height); i++){
-            row.push(<Gridnode
-                        keynow = {count}
-                        />)
-            count = count + 1
-        }
-        return row
-    }
-    
-    
-    componentDidMount() {
-        this.setState(function(state, props) {
-            return {
-              nodes: this.render_node_row()
-            };
-          });
-    }
+class Grid extends React.Component {
+	render() {
+		const width = ((this.props.cols * 16) + 1);
+		var rowsArr = [];
 
-    todoItems = () => this.state.nodes.map((todo, index) =>
-    // Only do this if items have no stable IDs
-    <div className = "gridnode" key={index}>
-        {todo}
-    </div>
-);
-    
-    render() {
-        console.log(this.todoItems())
-        
-        return (
-            <div 
-            className = "grid" 
-            style = {{height: (10*this.state.height), width: (10*this.state.width)}}
-            >
-                {this.todoItems()}
-            </div>
-        )
-    }
+		var boxClass = "";
+		for (var i = 0; i < this.props.rows; i++) {
+			for (var j = 0; j < this.props.cols; j++) {
+				let boxId = i + "_" + j;
+
+				boxClass = this.props.gridFull[i][j] ? "box on" : "box off";
+				rowsArr.push(
+					<Gridnode
+						boxClass={boxClass}
+						key={boxId}
+						boxId={boxId}
+						row={i}
+						col={j}
+						selectBox={this.props.selectBox}
+					/>
+				);
+			}
+		}
+
+		return (
+			<div className="grid" style={{width: width}}>
+				{rowsArr}
+			</div>
+		);
+	}
 }
 
-export default NodeGrid
+export default Grid
