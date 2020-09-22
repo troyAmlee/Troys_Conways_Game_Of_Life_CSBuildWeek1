@@ -34,6 +34,9 @@ class Buttons extends React.Component {
                     <button className="btn btn-default" onClick={this.props.stepThrough}>
 					  Step Through
 					</button>
+                    <button className="btn btn-default" onClick={this.props.makeSpaceship}>
+                      Make Spaceship
+                    </button>
 					<DropdownButton
 						title="Grid Size"
 						id="size-menu"

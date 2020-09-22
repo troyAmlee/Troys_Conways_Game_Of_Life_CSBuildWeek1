@@ -17,6 +17,7 @@ class Landing extends React.Component {
 	}
 
 	selectBox = (row, col) => {
+        console.log(row, col)
 		let gridCopy = arrayClone(this.state.gridFull);
 		gridCopy[row][col] = !gridCopy[row][col];
 		this.setState({
@@ -36,7 +37,47 @@ class Landing extends React.Component {
 		this.setState({
 			gridFull: gridCopy
 		});
-	}
+    }
+    
+    makeSpaceship = () => {
+        let gridCopy = arrayClone(this.state.gridFull);
+        let i = Math.floor(this.rows/2)
+        let j = Math.floor(this.cols/2)
+        console.log(i)
+        console.log(j)
+        gridCopy[13][24] = true
+        gridCopy[12][24] = true //28
+        gridCopy[12][25] = true
+        gridCopy[13][25] = true
+        gridCopy[14][26] = true
+        gridCopy[14][23] = true
+        gridCopy[11][23] = true
+        gridCopy[11][22] = true
+        gridCopy[11][26] = true
+        gridCopy[11][27] = true
+        gridCopy[14][28] = true
+        gridCopy[15][28] = true
+        gridCopy[14][21] = true
+        gridCopy[15][21] = true
+        gridCopy[17][28] = true
+        gridCopy[17][21] = true
+        gridCopy[18][22] = true
+        gridCopy[18][23] = true
+        gridCopy[19][23] = true
+        gridCopy[19][24] = true
+        gridCopy[19][25] = true
+        gridCopy[19][26] = true
+        gridCopy[18][26] = true
+        gridCopy[18][27] = true
+        gridCopy[21][24] = true
+        gridCopy[21][25] = true
+        gridCopy[22][25] = true
+        gridCopy[22][24] = true
+
+		this.setState({
+			gridFull: gridCopy
+		});
+    }
 
 	playButton = () => {
 		clearInterval(this.intervalId);
@@ -135,6 +176,7 @@ class Landing extends React.Component {
 					seed={this.seed}
                     gridSize={this.gridSize}
                     stepThrough={this.stepThrough}
+                    makeSpaceship={this.makeSpaceship}
 				/>
 				<Grid
 					gridFull={this.state.gridFull}
