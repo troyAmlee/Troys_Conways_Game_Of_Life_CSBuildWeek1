@@ -22,7 +22,8 @@ class Grid extends React.Component {
 						boxId={boxId}
 						row={i}
 						col={j}
-						selectBox={this.props.selectBox}
+                        selectBox={this.props.selectBox}
+                        playing={this.props.playing}
 					/>
 				);
 			}

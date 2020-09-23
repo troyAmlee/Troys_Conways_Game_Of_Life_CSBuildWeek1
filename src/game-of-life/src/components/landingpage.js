@@ -11,6 +11,7 @@ class Landing extends React.Component {
 		this.cols = 50;
 
 		this.state = {
+            playing: false,
 			generation: 0,
 			gridFull: Array(this.rows).fill().map(() => Array(this.cols).fill(false))
 		}
@@ -45,34 +46,34 @@ class Landing extends React.Component {
         let j = Math.floor(this.cols/2)
         console.log(i)
         console.log(j)
-        gridCopy[13][24] = true
-        gridCopy[12][24] = true //28
-        gridCopy[12][25] = true
-        gridCopy[13][25] = true
-        gridCopy[14][26] = true
-        gridCopy[14][23] = true
-        gridCopy[11][23] = true
-        gridCopy[11][22] = true
-        gridCopy[11][26] = true
-        gridCopy[11][27] = true
-        gridCopy[14][28] = true
-        gridCopy[15][28] = true
-        gridCopy[14][21] = true
-        gridCopy[15][21] = true
-        gridCopy[17][28] = true
-        gridCopy[17][21] = true
-        gridCopy[18][22] = true
-        gridCopy[18][23] = true
-        gridCopy[19][23] = true
-        gridCopy[19][24] = true
-        gridCopy[19][25] = true
-        gridCopy[19][26] = true
-        gridCopy[18][26] = true
-        gridCopy[18][27] = true
-        gridCopy[21][24] = true
-        gridCopy[21][25] = true
-        gridCopy[22][25] = true
-        gridCopy[22][24] = true
+        gridCopy[i-2][j-1] = true //i == 15, j == 25
+        gridCopy[i-3][j-1] = true //28
+        gridCopy[i-3][j] = true
+        gridCopy[i-2][j] = true
+        gridCopy[i-1][j+1] = true
+        gridCopy[i-1][j-2] = true
+        gridCopy[i-4][j-2] = true
+        gridCopy[i-4][j-3] = true
+        gridCopy[i-4][j+1] = true
+        gridCopy[i-4][j+2] = true
+        gridCopy[i-1][j+3] = true
+        gridCopy[i][j+3] = true
+        gridCopy[i-1][j-4] = true
+        gridCopy[i][j-4] = true
+        gridCopy[i+2][j+3] = true
+        gridCopy[i+2][j-4] = true
+        gridCopy[i+3][j-3] = true
+        gridCopy[i+3][j-2] = true
+        gridCopy[i+4][j-2] = true
+        gridCopy[i+4][j-1] = true
+        gridCopy[i+4][j] = true
+        gridCopy[i+4][j+1] = true
+        gridCopy[i+3][j+1] = true
+        gridCopy[i+3][j+2] = true
+        gridCopy[i+6][j-1] = true
+        gridCopy[i+6][j] = true
+        gridCopy[i+7][j] = true
+        gridCopy[i+7][j-1] = true
 
 		this.setState({
 			gridFull: gridCopy
@@ -81,28 +82,30 @@ class Landing extends React.Component {
 
 	playButton = () => {
 		clearInterval(this.intervalId);
-		this.intervalId = setInterval(this.play, this.speed);
+        this.intervalId = setInterval(this.play, this.speed);
+        this.setState({playing: true})
     }
     
     stepThrough = () => {
-        this.speed = 1000;
+        this.speed = 10;
         this.playButton();
         setTimeout(() => {
             clearInterval(this.intervalId);
-        }, 1000)
+        }, 10)
     }
 
 	pauseButton = () => {
-		clearInterval(this.intervalId);
+        clearInterval(this.intervalId);
+        this.setState({playing: false})
 	}
 
 	slow = () => {
-		this.speed = 1000;
+		this.speed = 500;
 		this.playButton();
 	}
 
 	fast = () => {
-		this.speed = 100;
+		this.speed = 50;
 		this.playButton();
 	}
 
@@ -117,8 +120,8 @@ class Landing extends React.Component {
 	gridSize = (size) => {
 		switch (size) {
 			case "1":
-				this.cols = 20;
-				this.rows = 10;
+				this.cols = 30;
+				this.rows = 20;
 			break;
 			case "2":
 				this.cols = 50;
@@ -160,7 +163,7 @@ class Landing extends React.Component {
 
 	componentDidMount() {
 		this.seed();
-		this.playButton();
+		
 	}
 
 	render() {
@@ -182,7 +185,8 @@ class Landing extends React.Component {
 					gridFull={this.state.gridFull}
 					rows={this.rows}
 					cols={this.cols}
-					selectBox={this.selectBox}
+                    selectBox={this.selectBox}
+                    playing={this.state.playing}
 				/>
 				<h2>Generations: {this.state.generation}</h2>
 			</div>

@@ -11,7 +11,7 @@ class Gridnode extends React.Component {
 			<div
 				className={this.props.boxClass}
 				id={this.props.id}
-				onClick={this.selectBox}
+				onClick={() => this.props.playing === false ? this.selectBox() : alert("Must be paused to edit")}
 			/>
 		);
 	}
