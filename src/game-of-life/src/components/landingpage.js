@@ -163,7 +163,6 @@ class Landing extends React.Component {
 
 	componentDidMount() {
 		this.seed();
-		
 	}
 
 	render() {
