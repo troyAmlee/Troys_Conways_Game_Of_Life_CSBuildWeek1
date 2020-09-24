@@ -169,7 +169,7 @@ class Landing extends React.Component {
 	render() {
 		return (
 			<div className="game">
-				<h1>The Game of Life</h1>
+				<h1>Conway's Game of Life</h1>
 				<Buttons
 					playButton={this.playButton}
 					pauseButton={this.pauseButton}
@@ -181,6 +181,7 @@ class Landing extends React.Component {
                     stepThrough={this.stepThrough}
                     makeSpaceship={this.makeSpaceship}
 				/>
+				<h2>Generations: {this.state.generation}</h2>
 				<div className="gradient-border" style={{width: (this.cols * 16) + 1}}>
 					<Grid
 						
@@ -191,7 +192,6 @@ class Landing extends React.Component {
 						playing={this.state.playing}
 					/>
 				</div>
-				<h2>Generations: {this.state.generation}</h2>
 			</div>
 		);
 	}

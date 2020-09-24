@@ -5,7 +5,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  margin-top: 20px;
   background: #222;
 }
 
@@ -24,7 +24,7 @@ body {
   color: white;
   background: #222;
   border-radius: var(--border-width);
-
+  margin-bottom: 80px;
   &::after {
     position: absolute;
     content: "";
