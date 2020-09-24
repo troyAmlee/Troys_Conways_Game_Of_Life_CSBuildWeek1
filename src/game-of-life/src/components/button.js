@@ -12,7 +12,7 @@ class Buttons extends React.Component {
 	render() {
 		return (
 			<div className="center">
-				<ButtonToolbar>
+				<ButtonToolbar className="buttontoolbar">
 					<button className="btn btn-default" onClick={this.props.playButton}>
 						Play
 					</button>
@@ -29,7 +29,7 @@ class Buttons extends React.Component {
 					  Fast
 					</button>
 					<button className="btn btn-default" onClick={this.props.seed}>
-					  Seed
+					  Randomize
 					</button>
                     <button className="btn btn-default" onClick={this.props.stepThrough}>
 					  Step Through

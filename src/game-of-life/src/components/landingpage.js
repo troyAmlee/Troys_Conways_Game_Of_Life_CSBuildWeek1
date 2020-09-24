@@ -2,6 +2,7 @@ import React from 'react';
 import Grid from './grid'
 import './components.css';
 import Buttons from './button'
+import './coolborder.scss'
 
 class Landing extends React.Component {
 	constructor() {
@@ -162,12 +163,12 @@ class Landing extends React.Component {
 	}
 
 	componentDidMount() {
-		this.seed();
+		
 	}
 
 	render() {
 		return (
-			<div>
+			<div className="game">
 				<h1>The Game of Life</h1>
 				<Buttons
 					playButton={this.playButton}
@@ -180,13 +181,16 @@ class Landing extends React.Component {
                     stepThrough={this.stepThrough}
                     makeSpaceship={this.makeSpaceship}
 				/>
-				<Grid
-					gridFull={this.state.gridFull}
-					rows={this.rows}
-					cols={this.cols}
-                    selectBox={this.selectBox}
-                    playing={this.state.playing}
-				/>
+				<div className="gradient-border" style={{width: (this.cols * 16) + 1}}>
+					<Grid
+						
+						gridFull={this.state.gridFull}
+						rows={this.rows}
+						cols={this.cols}
+						selectBox={this.selectBox}
+						playing={this.state.playing}
+					/>
+				</div>
 				<h2>Generations: {this.state.generation}</h2>
 			</div>
 		);
