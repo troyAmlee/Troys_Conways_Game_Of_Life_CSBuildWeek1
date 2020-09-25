@@ -1,12 +1,12 @@
 import React from 'react';
 import Gridnode from './gridnode'
-import './components.css';
+import './components.scss';
 
 
 
 class Grid extends React.Component {
 	render() {
-		const width = ((this.props.cols * 16) + 1);
+		const width = ((this.props.cols * 12) + 1);
 		var rowsArr = [];
 
 		var boxClass = "";

@@ -1,4 +1,4 @@
-// gradient: https://www.gradientmagic.com/collection/rainbowstandard
+
 @import url("https://fonts.googleapis.com/css?family=Lato:300");
 
 body {
@@ -10,7 +10,7 @@ body {
 }
 
 .gradient-border {
-  --border-width: 3px;
+  --border-width: 4px;
   position: relative;
   margin: 0 auto;
   font-family: Lato, sans-serif;
@@ -19,7 +19,7 @@ body {
   color: white;
   background: #222;
   border-radius: var(--border-width);
-  margin-bottom: 80px;
+  margin-bottom: 40px;
   &::after {
     position: absolute;
     content: "";

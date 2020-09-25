@@ -1,6 +1,6 @@
 import React from 'react';
 import Grid from './grid'
-import './components.css';
+import './components.scss';
 import Buttons from './button'
 import './coolborder.scss'
 
@@ -182,9 +182,8 @@ class Landing extends React.Component {
                     makeSpaceship={this.makeSpaceship}
 				/>
 				<h2>Generations: {this.state.generation}</h2>
-				<div className="gradient-border" style={{width: (this.cols * 16) + 1}}>
+				<div className="gradient-border" style={{width: (this.cols * 12) + 1}}>
 					<Grid
-						
 						gridFull={this.state.gridFull}
 						rows={this.rows}
 						cols={this.cols}
@@ -192,6 +191,19 @@ class Landing extends React.Component {
 						playing={this.state.playing}
 					/>
 				</div>
+				<article className = "rules">
+					<h3 className="rules-header">Rules:</h3>
+					<ul className="rules-list">
+						<li>Any live cell with two or three live neighbours survives.</li>
+						<li>Any dead cell with three live neighbours becomes a live cell.</li>
+						<li>All other live cells die in the next generation. Similarly, all other dead cells stay dead.</li>
+					</ul>
+					<h3 className="rules-header">Bio:</h3>
+					<img className="john" src = "https://d2r55xnwy6nx47.cloudfront.net/uploads/2015/08/Conway_1k.jpg" alt="John Conway's Portrait"></img>
+					<p className="bio">
+						John Conway was an English mathematician who has produced many results in the theory of finite groups, knot theory, number theory, combinatorial game theory and coding theory. He also made many contributions to recreational mathematics, including the Game of Life.
+					</p>
+				</article>
 			</div>
 		);
 	}

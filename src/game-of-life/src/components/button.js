@@ -1,5 +1,5 @@
 import React from 'react';
-import './components.css';
+import './components.scss';
 import { ButtonToolbar, Dropdown, DropdownButton } from 'react-bootstrap';
 
 
@@ -42,9 +42,9 @@ class Buttons extends React.Component {
 						id="size-menu"
 						onSelect={this.handleSelect}
 					>
-						<Dropdown.Item className="btn btn-default" eventKey="1">30x20</Dropdown.Item>
-						<Dropdown.Item className="btn btn-default" eventKey="2">50x30</Dropdown.Item>
-						<Dropdown.Item className="btn btn-default" eventKey="3">70x50</Dropdown.Item>
+						<Dropdown.Item className="btn btn-default" eventKey="1">Small</Dropdown.Item>
+						<Dropdown.Item className="btn btn-default" eventKey="2">Medium</Dropdown.Item>
+						<Dropdown.Item className="btn btn-default" eventKey="3">Large</Dropdown.Item>
 					</DropdownButton>
 				</ButtonToolbar>
 			</div>
