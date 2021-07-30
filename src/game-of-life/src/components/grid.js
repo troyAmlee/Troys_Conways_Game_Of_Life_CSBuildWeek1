@@ -1,6 +1,6 @@
 import React from 'react';
 import Gridnode from './gridnode'
-import './components.scss';
+import './components.css';
 
 
 

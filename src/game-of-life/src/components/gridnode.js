@@ -1,5 +1,5 @@
 import React from 'react';
-import './components.scss';
+import './components.css';
 
 class Gridnode extends React.Component {
 	selectBox = () => {

@@ -1,8 +1,8 @@
 import React from 'react';
 import Grid from './grid'
-import './components.scss';
+import './components.css';
 import Buttons from './button'
-import './coolborder.scss'
+
 
 class Landing extends React.Component {
 	constructor() {
